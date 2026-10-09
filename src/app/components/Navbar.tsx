@@ -62,7 +62,7 @@ export default function Navbar() {
                                         <span>✨</span> {credits} Credits
                                     </div>
                                 )}
-                                <UserButton afterSignOutUrl="/" />
+                                <UserButton />
                             </Show>
                         </div>
                     </div>
