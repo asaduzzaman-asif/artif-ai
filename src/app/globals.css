@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+body {
+  background-color: #0f172a; /* ডার্ক থিম ব্যাকগ্রাউন্ড */
+  color: #ffffff;
+}
