@@ -108,7 +108,9 @@ export default function Home() {
                 >
                   {previewUrl ? (
                     <div className="relative w-full h-32 rounded-lg overflow-hidden">
-                      <Image src={previewUrl} alt="Preview" fill className="object-cover" />
+                      {generatedImage && (
+                        <Image src={generatedImage} alt="Generated Art" fill className="object-contain" />
+                      )}
                     </div>
                   ) : (
                     <div className="text-slate-400 py-4">
@@ -139,8 +141,8 @@ export default function Home() {
                   onClick={handleGenerate}
                   disabled={isGenerating || !prompt}
                   className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${isGenerating || !prompt
-                      ? "bg-slate-700 text-slate-400 cursor-not-allowed"
-                      : "bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg hover:shadow-indigo-500/30"
+                    ? "bg-slate-700 text-slate-400 cursor-not-allowed"
+                    : "bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg hover:shadow-indigo-500/30"
                     }`}
                 >
                   {isGenerating ? "Generating Magic..." : "Generate Image 🚀"}
