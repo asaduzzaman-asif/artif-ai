@@ -2,7 +2,6 @@
 
 import { useState, useRef } from "react";
 import { useUser, SignInButton } from "@clerk/nextjs";
-import Image from "next/image";
 
 export default function Home() {
   const { isSignedIn, isLoaded } = useUser();
@@ -108,9 +107,7 @@ export default function Home() {
                 >
                   {previewUrl ? (
                     <div className="relative w-full h-32 rounded-lg overflow-hidden">
-                      {generatedImage && (
-                        <Image src={generatedImage} alt="Generated Art" fill className="object-contain" />
-                      )}
+                      <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
                     </div>
                   ) : (
                     <div className="text-slate-400 py-4">
@@ -171,9 +168,7 @@ export default function Home() {
               ) : generatedImage ? (
                 <div className="w-full h-full flex flex-col items-center space-y-4">
                   <div className="relative w-full h-full min-h-[350px] rounded-lg overflow-hidden shadow-2xl">
-                    {generatedImage && (
-                      <Image src={generatedImage} alt="Generated Art" fill className="object-contain" />
-                    )}
+                    <img src={generatedImage} alt="Generated Art" className="w-full h-full object-contain" />
                   </div>
                   <a
                     href={generatedImage}
