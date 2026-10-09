@@ -76,7 +76,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-200 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-8">
-        
+
         <div className="text-center space-y-4">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white">
             Transform Ideas into <span className="text-indigo-500">Visual Magic</span>
@@ -88,7 +88,7 @@ export default function Home() {
 
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
+
             <div className="space-y-6">
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-slate-300">Your Prompt</label>
@@ -102,7 +102,7 @@ export default function Home() {
 
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-slate-300">Reference Image (Optional)</label>
-                <div 
+                <div
                   onClick={() => fileInputRef.current?.click()}
                   className="border-2 border-dashed border-slate-700 hover:border-indigo-500 bg-slate-800/50 rounded-xl p-6 text-center cursor-pointer transition-all"
                 >
@@ -125,7 +125,7 @@ export default function Home() {
                   />
                 </div>
                 {previewUrl && (
-                  <button 
+                  <button
                     onClick={() => { setPreviewUrl(null); setImageFile(null); }}
                     className="text-xs text-red-400 hover:text-red-300"
                   >
@@ -138,11 +138,10 @@ export default function Home() {
                 <button
                   onClick={handleGenerate}
                   disabled={isGenerating || !prompt}
-                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
-                    isGenerating || !prompt
+                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${isGenerating || !prompt
                       ? "bg-slate-700 text-slate-400 cursor-not-allowed"
                       : "bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg hover:shadow-indigo-500/30"
-                  }`}
+                    }`}
                 >
                   {isGenerating ? "Generating Magic..." : "Generate Image 🚀"}
                 </button>
@@ -170,10 +169,12 @@ export default function Home() {
               ) : generatedImage ? (
                 <div className="w-full h-full flex flex-col items-center space-y-4">
                   <div className="relative w-full h-full min-h-[350px] rounded-lg overflow-hidden shadow-2xl">
-                    <Image src={generatedImage} alt="Generated Art" fill className="object-contain" />
+                    {generatedImage && (
+                      <Image src={generatedImage} alt="Generated Art" fill className="object-contain" />
+                    )}
                   </div>
-                  <a 
-                    href={generatedImage} 
+                  <a
+                    href={generatedImage}
                     download="ArtifAI-Result.jpg"
                     target="_blank"
                     className="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-sm font-medium transition-colors"
